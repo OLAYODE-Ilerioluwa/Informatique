@@ -1,0 +1,51 @@
+
+body {
+  background-color: #1c1c1c;
+  color: #eee;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  margin: 20px;
+  color: #e74c3c;
+}
+canvas {
+  background-color: #2c3e50;
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #ecf0f1;
+}
+#resultText {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #f1c40f;
+}
+.health-bars {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  width: 800px;
+}
+.health-bar {
+  height: 20px;
+  width: 45%;
+  background-color: #27ae60;
+  border: 2px solid #fff;
+  transition: width 0.3s ease;
+}
+.player1 {
+  border-radius: 10px 0 0 10px;
+}
+.player2 {
+  border-radius: 0 10px 10px 0;
+  background-color: #c0392b;
+}
+.flash-hit {
+  animation: flashHit 0.2s;
+}
+@keyframes flashHit {
+  0% { filter: brightness(2); }
+  100% { filter: brightness(1); }
+}
