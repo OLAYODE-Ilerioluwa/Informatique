@@ -1,16 +1,22 @@
-
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
+// Charger l'image de fond
 const background = new Image();
-background.src ='images/background.png'; // adapte le chemin selon ton projet
+background.src = 'images/background.png';
+
+background.onload = () => {
+  drawScene(); // Redessine quand l'image est chargée
+};
+
 
 const player1 = {
   x: 150,
   y: 200,
   color: '#3498db',
   action: '',
-  power: 0
+  power: 10,
+  hp: 100
 };
 
 const player2 = {
@@ -18,7 +24,8 @@ const player2 = {
   y: 200,
   color: '#e67e22',
   action: '',
-  power: 0
+  power: 10,
+  hp: 100
 };
 
 const keys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
@@ -39,26 +46,14 @@ function drawPlayer(player) {
 
 function drawScene() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  
-  drawPlayer(player1);
-  drawPlayer(player2);
-}
 
-function resolveRound() {
-  const resultText = document.getElementById('resultText');
-  if (!player1.action || !player2.action) {
-    resultText.textContent = "Les deux joueurs doivent jouer !";
-    return;
+  // Vérifie que l’image est chargée
+  if (background.complete) {
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   }
 
-  resultText.textContent = `J1: ${keyLabels[player1.action]} | J2: ${keyLabels[player2.action]}`;
-
-  // Reset actions
-  player1.action = '';
-  player2.action = '';
-  roundInProgress = false;
+  drawPlayer(player1);
+  drawPlayer(player2);
 }
 
 document.addEventListener('keydown', (e) => {
@@ -117,3 +112,5 @@ function resolveRound() {
   player2.action = '';
   roundInProgress = false;
 }
+drawScene();
+updateHealthBars();
