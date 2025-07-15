@@ -1,116 +1,76 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-// Charger l'image de fond
-const background = new Image();
-background.src = 'images/background.png';
+const WIDTH = canvas.width;
+const HEIGHT = canvas.height;
 
-background.onload = () => {
-  drawScene(); // Redessine quand l'image est chargée
-};
+// === Chargement des 3 couches ===
+const sky = new Image();
+const clouds = new Image();
+const foreground = new Image();
 
+sky.src = 'images/sky_layer.png';
+clouds.src = 'images/clouds_layer.png';
+foreground.src = 'images/foreground_layer.png';
 
-const player1 = {
-  x: 150,
-  y: 200,
-  color: '#3498db',
-  action: '',
-  power: 10,
-  hp: 100
-};
+let cloudX = 0;
 
-const player2 = {
-  x: 550,
-  y: 200,
-  color: '#e67e22',
-  action: '',
-  power: 10,
-  hp: 100
-};
+// Attendre que tout soit chargé avant d’animer
+Promise.all([
+  new Promise(res => sky.onload = res),
+  new Promise(res => clouds.onload = res),
+  new Promise(res => foreground.onload = res)
+]).then(() => {
+  requestAnimationFrame(update);
+});
 
-const keys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '];
-const keyLabels = {
-  'ArrowUp': 'Attaque forte',
-  'ArrowDown': 'Attaque rapide',
-  'ArrowLeft': 'Esquive gauche',
-  'ArrowRight': 'Esquive droite',
-  ' ': 'Garde'
-};
-
-let roundInProgress = false;
-
-function drawPlayer(player) {
-  ctx.fillStyle = player.color;
-  ctx.fillRect(player.x, player.y, 50, 100);
+function update() {
+  drawScene();
+  requestAnimationFrame(update);
 }
 
 function drawScene() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // 1. Ciel fixe
+  ctx.drawImage(sky, 0, 0, WIDTH, HEIGHT);
 
-  // Vérifie que l’image est chargée
-  if (background.complete) {
-    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-  }
+  // 2. Nuages animés
+  cloudX -= 0.4;
+  if (cloudX <= -WIDTH) cloudX = 0;
+  ctx.drawImage(clouds, cloudX, 0, WIDTH, HEIGHT);
+  ctx.drawImage(clouds, cloudX + WIDTH, 0, WIDTH, HEIGHT);
 
-  drawPlayer(player1);
-  drawPlayer(player2);
+  // 3. Premier plan (dojo et arbres)
+  ctx.drawImage(foreground, 0, 0, WIDTH, HEIGHT);
+}
+// === Personnage ===
+const samurai = new Image();
+samurai.src = 'samurai.png';
+
+let samuraiX = 300; // position horizontale de départ
+let samuraiY = 280; // position verticale fixe (sol)
+let speed = 4;
+let keys = {};
+
+// Écoute clavier
+document.addEventListener('keydown', e => keys[e.key] = true);
+document.addEventListener('keyup', e => keys[e.key] = false);
+
+// Affichage du samouraï
+function drawSamurai() {
+  // Gestion mouvement
+  if (keys["ArrowLeft"]) samuraiX -= speed;
+  if (keys["ArrowRight"]) samuraiX += speed;
+
+  // Limites
+  samuraiX = Math.max(0, Math.min(WIDTH - 50, samuraiX));
+
+  // Dessin
+  ctx.drawImage(samurai, samuraiX, samuraiY, 50, 70); // image, x, y, largeur, hauteur
 }
 
-document.addEventListener('keydown', (e) => {
-  if (!roundInProgress && keys.includes(e.key)) {
-    if (!player1.action) {
-      player1.action = e.key;
-
-      // L’ordi réagit automatiquement
-      const randomKey = keys[Math.floor(Math.random() * keys.length)];
-      player2.action = randomKey;
-
-      roundInProgress = true;
-      setTimeout(resolveRound, 1000);
-    }
-  }
-});
-
-
-drawScene();
-
-function updateHealthBars() {
-  document.getElementById('hp1').style.width = `${player1.hp}%`;
-  document.getElementById('hp2').style.width = `${player2.hp}%`;
+// Mets ça dans la boucle
+function update() {
+  drawScene();
+  drawSamurai(); // <-- ajoute le perso ici
+  requestAnimationFrame(update);
 }
-
-function flashPlayer(playerIndex) {
-  const canvas = document.getElementById('gameCanvas');
-  canvas.classList.add('flash-hit');
-  setTimeout(() => {
-    canvas.classList.remove('flash-hit');
-  }, 200);
-}
-
-function resolveRound() {
-  const resultText = document.getElementById('resultText');
-  if (!player1.action || !player2.action) {
-    resultText.textContent = "Les deux joueurs doivent jouer !";
-    return;
-  }
-
-  resultText.textContent = `J1: ${keyLabels[player1.action]} | J2: ${keyLabels[player2.action]}`;
-
-  // Démo simple : on dit que player1 touche player2
-  if (Math.random() > 0.5) {
-    player2.hp -= 10;
-    flashPlayer(2);
-  } else {
-    player1.hp -= 10;
-    flashPlayer(1);
-  }
-
-  updateHealthBars();
-
-  // Reset
-  player1.action = '';
-  player2.action = '';
-  roundInProgress = false;
-}
-drawScene();
-updateHealthBars();

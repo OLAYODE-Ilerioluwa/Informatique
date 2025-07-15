@@ -2,123 +2,154 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Portfolio - OLAYODE Ilerioluwa</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    h1 {
-      color: #0077cc;
-    }
-    h2 {
-      color: #333;
-    }
-    .project {
-      background: white;
-      padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .project img {
-      max-width: 100%;
-    }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .skill {
-      background: #0077cc;
-      color: white;
-      padding: 5px 10px;
-      margin: 5px;
-      border-radius: 20px;
-    }
-  </style>
+  <title>Mon Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <div class="container">
-    <!-- Section de présentation -->
-    <header>
-      <h1>Bienvenue sur mon portfolio</h1>
-      <p>Je suis OLAYODE Ilerioluwa, développeur(se) informatique passionné(e) par la création de solutions web et d'applications.</p>
-    </header>
 
-    <!-- Section projets -->
-    <section id="projects">
-      <h2>Mes projets</h2>
-      <div class="project">
-        <h3>Projet 1: Projet_tas_de_sable</h3>
-        <p>L’objectif de ce projet est de simuler l’écoulement d’un tas de sable et d’implémenter des opérations qui lui sont lié. La modélisation que l’on utilise repose sur un automate cellulaire appelé, en anglais, abelian sandpile model.</p>
-        <img src="project_tas_de_sable.png" alt="Capture d'écran projet 1">
-        <p><a href="https://github.com/OLAYODE-Ilerioluwa/Informatique/blob/main/Projet%20sable/tas_de_sable.py">Voir le code sur GitHub</a></p>
-      </div>
-      <div class="project">
-        <h3>Projet 2: Projet_taquin</h3>
-        <p>
-          Lancer le script.<br>
-          – Un clic sur une des cases du taquin juxtaposée à la case vide permet de déplacer celle-ci comme on veut sur le canvas, puis un autre clic est nécessaire pour cette fois-ci déposer la case en question. (Cette fonctionnalité est gadget et peu efficace car il existe quelques bugs dessus.)<br>
-          – Les flèches directionnelles permettent d’interagir avec le Taquin et de bouger les cases à l’intérieur de la double dimension.<br>
-          – Si une case est bien placée alors elle devient verte.<br>
-          – Les boutons situés sur la tranche basse du GUI sont tous fonctionnels et correspondent à leur dénomination.<br>
-          – Si toutes les cases sont bien placées, alors dans le terminal vous pourrez lire <strong>"win"</strong>.
-        </p>
-        
-        <img src="project_taquin.png" alt="Capture d'écran projet 1">
-        <p><a href="https://github.com/OLAYODE-Ilerioluwa/Informatique/blob/main/Projet%20taquin/taquin.py">Voir le code sur GitHub</a></p>
-      </div>
-      <div class="project">
-        <h3>Projet 3 : IN202</h3>
-        <p>Création en Python d’un compresseur JPEG simplifié : conversion RGB → YCbCr, sous-échantillonnage, transformation DCT, seuils de compression, encodage RLE, et reconstruction d’image. Plusieurs niveaux de compression ont été implémentés pour équilibrer qualité et poids des fichiers.
+  <header>
+    <h1>Bienvenue sur mon portfolio</h1>
+    <p>Je suis Ilerioluwa OLAYODE, étudiant à INGETIS à partir de septembre 2025, et développeur passionné par le web et la création numérique. Je suis actuellement à la recherche d'une alternance pour poursuivre mes projets et monter en compétences.
+    </p>
+  </header>
 
-        </p>
-        <a href="https://github.com/OLAYODE-Ilerioluwa/Informatique/blob/main/Projet%20IN202/rgb_project_ileri.py" target="_blank">Voir le projet</a>
-      </div>
-    
-      <div class="project">
-        <h3>Projet 4 : IN202 2</h3>
-        <p>Développement d'un compresseur d'image en Python reproduisant le format BC1 utilisé dans les cartes graphiques. Le projet inclut la découpe en blocs 4x4, la génération de palettes de couleurs optimisées, l'encodage en binaire, et la décompression. Qualité évaluée via l'indicateur PSNR.</p>
-        <a href="https://github.com/OLAYODE-Ilerioluwa/Informatique/blob/main/Projet%20IN202%202/CZ_OLAYODE_Ilerioluwa.ipynb" target="_blank">Voir le projet</a>
-      </div>
-
-
-    </section>
-
-    <!-- Section compétences -->
-    <section id="skills">
-      <h2>Compétences</h2>
-      <div class="skills">
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">React</div>
-        <div class="skill">Node.js</div>
-        <div class="skill">Python</div>
-      </div>
-    </section>
-
-    <!-- Section contact -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Vous pouvez me contacter par email à <a href="ileri.olayode@outlook.fr">ileri.olayode@outlook.fr</a>.</p>
-    </section>
+  <section id="about">
+  <h2>À propos de moi</h2>
+  <div class="about-container">
+    <p>
+      Je m'appelle <strong>Ilerioluwa OLAYODE</strong>, futur étudiant à INGETIS à partir de septembre 2025. Passionné par le développement web et la création numérique, j’ai déjà travaillé sur plusieurs projets personnels mêlant programmation, design et logique métier.
+    </p>
+    <p>
+      Actuellement à la recherche d’une <strong>alternance</strong>, je souhaite intégrer une entreprise où je pourrai continuer à progresser, collaborer sur des projets concrets et mettre mes compétences en pratique.
+    </p>
+    <p>
+      Je suis fasciné par l’informatique et par le fait de coder des programmes, relever des défis techniques et donner vie à des idées. J’aime particulièrement la dimension créative du développement, un domaine que je trouve aussi stimulant qu’attrayant.
+    </p>
   </div>
+</section>
+
+<section id="parcours">
+  <h2>Parcours scolaire</h2>
+  <div class="timeline">
+    <div class="etape">
+      <h3>2025 - 2027</h3>
+      <p><strong>École INGETIS – Paris</strong><br>
+      BTS SIO option SLAM (en alternance)</p>
+    </div>
+    <div class="etape">
+      <h3>2022 - 2025</h3>
+      <p><strong>UVSQ </strong><br>
+      L1 DU Saclay Informatique & Science de la vie (non obtenue)</p> 
+    </div>
+    <div class="etape">
+      <h3>Avant 2022</h3>
+      <p><strong>Parcours secondaire</strong><br>
+      BAC géneral</p>
+    </div>
+  </div>
+</section>
+
+
+  <section id="projets">
+  <h2>Mes Projets</h2>
+  <div class="projets-container">
+    <div class="projet">
+      <h3>Projet 1 : Taquin</h3>
+      <p>Ce projet est un jeu de taquin interactif. Les cases peuvent être déplacées à la souris ou avec les flèches du clavier. Lorsqu’elles sont bien placées, elles deviennent vertes. Tous les boutons de l’interface sont fonctionnels, et le message "win" s'affiche dans le terminal quand le puzzle est résolu.</p>
+      <a href="#" target="_blank">Voir le projet</a>
+    </div>
+    
+    <div class="projet">
+      <h3>Projet 2 : Tas de sable </h3>
+      <p>L’objectif de ce projet est de simuler l’écoulement d’un tas de sable et d’implémenter des opérations qui lui sont lié. La modélisation que l’on utilise repose sur un automate cellulaire appelé, en anglais, abelian sandpile model.</p>
+      <a href="#" target="_blank">Voir le projet</a>
+    </div>
+    
+    <div class="projet">
+      <h3>Projet 3 : Compression JPEG</h3>
+      <p>Ce projet consistait à implémenter une version simplifiée de la compression JPEG en Python. Il inclut la conversion des couleurs RGB en YCbCr, le découpage en blocs 8×8, la transformation en cosinus discrète (DCT), le sous-échantillonnage, l’écriture dans un format texte compressé, et la décompression. L’objectif était de comprendre les étapes clés du format JPEG tout en produisant une image compressée proche de l’originale.</p>
+      <a href="#" target="_blank">Voir le projet</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="competences">
+  <h2>Mes Compétences</h2>
+  <div class="skills">
+    <div class="skill">
+      <span>HTML</span>
+      <div class="bar" data-level="2"></div>
+      <p class="niveau">Avancé</p>
+    </div>
+    <div class="skill">
+      <span>CSS</span>
+      <div class="bar" data-level="2"></div>
+      <p class="niveau">Avancé</p>
+    </div>
+    <div class="skill">
+      <span>JavaScript</span>
+      <div class="bar" data-level="1"></div>
+      <p class="niveau">Intermédiaire</p>
+    </div>
+    <div class="skill">
+      <span>Microsoft Office</span>
+      <div class="bar" data-level="0"></div>
+      <p class="niveau">Débutant</p>
+    </div>
+    <div class="skill">
+      <span>SQL</span>
+      <div class="bar" data-level="2"></div>
+      <p class="niveau">Avancé</p>
+    </div>
+    <div class="skill">
+      <span>C++</span>
+      <div class="bar" data-level="1"></div>
+      <p class="niveau">Intermédiaire</p>
+    </div>
+    <div class="skill">
+      <span>PHP</span>
+      <div class="bar" data-level="2"></div>
+      <p class="niveau">Avancé</p>
+    </div>
+    <div class="skill">
+      <span>POO</span>
+      <div class="bar" data-level="2"></div>
+      <p class="niveau">Intermédiaire</p>
+    </div>
+    <div class="skill">
+      <span>Python</span>
+      <div class="bar" data-level="2"></div>
+      <p class="niveau">Avancé</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <section id="contact">
+  <h2>Contactez-moi</h2>
+  <form class="contact-form" action="mailto: ileri.olayode@outlook.fr" method="POST" enctype="text/plain">
+    <label for="name">Nom :</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message :</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
+
+
+  <footer>
+    &copy; 2025 OLAYODE. Tous droits réservés.
+  </footer>
+<script src="script.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ====== GLOBAL CONTAINERS ====== */
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* ====== HEADER ====== */
+header {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 0.9rem;
+}
+/* ====== CV ====== */
+.about-container {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f0f0f0;
+}
+
+.cv-container p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.btn-cv {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0072ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cv:hover {
+  background-color: #005dd1;
+}
+
+
+/* ====== PROJETS ====== */
+.projets-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.projet {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.projet h3 {
+  margin-top: 0;
+}
+
+.projet a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.projet a:hover {
+  text-decoration: underline;
+}
+
+/* ====== COMPÉTENCES ====== */
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill .niveau {
+  margin-top: 5px;
+  font-size: 14px;
+  font-style: italic;
+  color: #555;
+}
+
+.skill span {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.bar {
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar div {
+  height: 100%;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border-radius: 10px;
+  width: 0;
+  transition: width 1.2s ease-out;
+}
+
+/* ====== FORMULAIRE DE CONTACT ====== */
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.contact-form button {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #0072ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #0057cc;
+}
+
+/* ====== FOOTER ====== */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+}
