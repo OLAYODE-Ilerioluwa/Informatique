@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Entrée dans mon monde</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      background: black;
+      color: lime;
+      font-family: monospace;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border: 1px solid lime;
+      border-radius: 10px;
+    }
+
+    .overlay h1 {
+      margin-bottom: 20px;
+    }
+
+    .overlay button {
+      background: none;
+      color: lime;
+      border: 1px solid lime;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .overlay button:hover {
+      background: lime;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="matrixCanvas"></canvas>
+
+<div class="overlay">
+  <h1>Voulez-vous rentrer dans mon monde ?</h1>
+  <button onclick="enterSite()">Oui, je suis prêt</button>
+  <button onclick="enterSite()">Non, mais j’ai pas le choix</button>
+</div>
+
+<script>
+  // Animation façon Matrix
+  const canvas = document.getElementById('matrixCanvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+
+  const letters = Array(256).join("0").split("");
+
+  function drawMatrix() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#0F0";
+    letters.forEach((y_pos, index) => {
+      const text = String.fromCharCode(48 + Math.random() * 10);
+      const x_pos = index * 10;
+      ctx.fillText(text, x_pos, y_pos);
+      letters[index] = (y_pos > canvas.height + Math.random() * 10000) ? 0 : y_pos + 10;
+    });
+  }
+
+  setInterval(drawMatrix, 50);
+
+  // Redirection vers le site principal
+  function enterSite() {
+    window.location.href = "portfolio.html"; // Remplace par le vrai lien de ton portfolio
+  }
+</script>
+
+</body>
+</html>
