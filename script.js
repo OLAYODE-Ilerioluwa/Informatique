@@ -36,3 +36,10 @@ function initForm() {
     // Ici, tu pourrais envoyer les données via fetch() vers un back-end ou service externe
   });
 }
+
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('change', () => {
+  document.body.classList.toggle('light');
+});
+
+
